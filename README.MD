@@ -2,6 +2,8 @@
 
 A command line sensor created for Home Assistant that scrapes the data from the official website of the [Aruban Government](https://www.arubacovid19.org/).
 
+**Note:** This is a work in progress and they keep changing the website, I will update the script as soon I catch the new changes to the website. If you catch them before I do, please submit an issue.
+
 ## How to use
 Place the arubacovid19.py file somewhere inside your Home Assistant Config folder. In this example it will be placed in `config\custom_sensors\`
 
