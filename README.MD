@@ -12,18 +12,27 @@ Place the arubacovid19.py file somewhere inside your Home Assistant Config folde
 ```
 sensor:
   - platform: command_line
+    name: Aruba COVID19 - Activo
+    command: "python3 /config/custom_sensors/arubacovid19.py"
+    scan_interval: 30
+    value_template: '{{ value_json.activo }}'
+    unit_of_measurement: "hende"
+  - platform: command_line
     name: Aruba COVID19 - Positivo
     command: "python3 /config/custom_sensors/arubacovid19.py"
     scan_interval: 30
     value_template: '{{ value_json.positivo }}'
+    unit_of_measurement: "hende"
   - platform: command_line
     name: Aruba COVID19 - Morto
     command: "python3 /config/custom_sensors/arubacovid19.py"
     scan_interval: 30
     value_template: '{{ value_json.morto }}'
+    unit_of_measurement: "hende"
   - platform: command_line
     name: Aruba COVID19 - Recupera
     command: "python3 /config/custom_sensors/arubacovid19.py"
     scan_interval: 30
     value_template: '{{ value_json.recupera }}'
+    unit_of_measurement: "hende"
 ```
