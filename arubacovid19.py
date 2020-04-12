@@ -19,6 +19,6 @@ def getcovid():
     data['activo'] = int(activo)
     json_data = json.dumps(data)
     print(json_data)
-    return;
+    return
 
 getcovid()
