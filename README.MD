@@ -1,4 +1,4 @@
-# UPDATE 4/13/2020: They sensor is broken as the government changed the website to use an image instead of text. Therefore the values cannot be scraped anymore. I will try to work on a way to recognize the text, but I don't know how long that will take.
+# UPDATE 4/13/2020: The sensor is broken as the government changed the website to use an image instead of text. Therefore the values cannot be scraped anymore. I will try to work on a way to recognize the text, but I don't know how long that will take.
 
 
 # Home Assistant - Aruba COVID19 Sensors
