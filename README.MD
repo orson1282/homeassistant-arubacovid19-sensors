@@ -1,3 +1,6 @@
+# UPDATE 4/13/2020: They sensor is broken as the government changed the website to use an image instead of text. Therefore the values cannot be scraped anymore. I will try to work on a way to recognize the text, but I don't know how long that will take.
+
+
 # Home Assistant - Aruba COVID19 Sensors
 
 A command line sensor created for Home Assistant that scrapes the data from the official website of the [Aruban Government](https://www.arubacovid19.org/).
