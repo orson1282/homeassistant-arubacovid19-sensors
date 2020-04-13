@@ -3,22 +3,28 @@ from bs4 import BeautifulSoup as bs
 import requests
 import json
 
-def getcovid():
+
+def get_covid19_data():
     headers = {'User-Agent': 'Mozilla/5.0'}
-    url = 'https://www.arubacovid19.org/'
+    url = 'https://epidemic-stats.com/coronavirus/aruba'
     source = requests.get(url, headers=headers)
     soup = bs(source.content, 'lxml')
-    positivo = soup.find(id='comp-k7yvjsdj').span.text
-    recupera = soup.find(id='comp-k8bojc5u').span.text
-    morto = soup.find(id='comp-k8bojw0s').span.text
-    activo = soup.find(id='comp-k8q4vxzi').span.span.span.span.text
-    data = {}
-    data['positivo'] = int(positivo)
-    data['morto'] = int(morto)
-    data['recupera'] = int(recupera)
-    data['activo'] = int(activo)
-    json_data = json.dumps(data)
-    print(json_data)
-    return
 
-getcovid()
+    positivo = soup.find("div", class_="card-body").span
+    morto = positivo.find_next("div", class_="card-body").span
+    recupera = morto.find_next("div", class_="card-body").span
+
+    positivo = int(positivo.text)
+    morto = int(morto.text.split()[0])
+    recupera = int(recupera.text.split()[0])
+    activo = positivo - morto - recupera
+
+    data = {}
+    data['positivo'] = positivo
+    data['morto'] = morto
+    data['recupera'] = recupera
+    data['activo'] = activo
+    return json.dumps(data)
+
+
+print(get_covid19_data())
