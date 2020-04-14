@@ -10,20 +10,20 @@ def get_covid19_data():
     source = requests.get(url, headers=headers)
     soup = bs(source.content, 'lxml')
 
-    positivo = soup.find("div", class_="card-body").span
-    morto = positivo.find_next("div", class_="card-body").span
-    recupera = morto.find_next("div", class_="card-body").span
+    infected = soup.find("div", class_="card-body").span
+    deaths = infected.find_next("div", class_="card-body").span
+    recovered = deaths.find_next("div", class_="card-body").span
 
-    positivo = int(positivo.text)
-    morto = int(morto.text.split()[0])
-    recupera = int(recupera.text.split()[0])
-    activo = positivo - morto - recupera
+    infected = int(infected.text)
+    deaths = int(deaths.text.split()[0])
+    recovered = int(recovered.text.split()[0])
+    active = infected - deaths - recovered
 
     data = {}
-    data['positivo'] = positivo
-    data['morto'] = morto
-    data['recupera'] = recupera
-    data['activo'] = activo
+    data['infected'] = infected
+    data['deaths'] = deaths
+    data['recovered'] = recovered
+    data['active'] = active
     return json.dumps(data)
 
 
